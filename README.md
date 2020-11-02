@@ -45,6 +45,8 @@ INSERT INTO sales(customer_id, car_id, sale_price, sale_rep) VALUES (1,2,21000.2
 
 ```
 
-It's a little scrambled since I made the DB then worked on the django add
+It's a little scrambled since I made the DB then worked on the django app
 
 The file topsales/views.py contains the code to tabulate the top sellers and display a webpage with the table.html
+
+The dealership file support command line argument with the -i flag and a csv file (e.g. cars.csv) which will upload the csv data into the database
