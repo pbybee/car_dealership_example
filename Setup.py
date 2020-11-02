@@ -22,7 +22,14 @@ def create_schema(conn):
           sale_id SERIAL PRIMARY KEY,
           customer_id INTEGER REFERENCES customers,
           car_id INTEGER REFERENCES cars,
-          sale_price NUMERIC(10,2)
+          sale_price NUMERIC(10,2),
+          sale_rep TEXT
+          );
+          
+        CREATE TABLE IF NOT EXISTS top_sales (
+          id SERIAL PRIMARY KEY,
+          sale_rep TEXT,
+          total_sales NUMERIC(10,2)
           );
         """)
 
@@ -32,12 +39,12 @@ def create_schema(conn):
 def insert_mock_data(conn):
     cur = conn.cursor()
     cur.execute("""
-        INSERT INTO customers(customer_name, customer_phone) VALUES ('TOM','123');
-        INSERT INTO customers(customer_name, customer_phone) VALUES ('JANE','987');
+        INSERT INTO customers(customer_name, customer_phone) VALUES ('Jon','123');
+        INSERT INTO customers(customer_name, customer_phone) VALUES ('Jane','987');
         INSERT INTO cars(car_make, car_model, car_year, car_description) VALUES ('Toyota', 'Tacoma', 2011, 'Its a truck');
         INSERT INTO cars(car_make, car_model, car_year, car_description) VALUES ('Subaru', 'Forester', 2001, 'Super Sports Edition');
-        INSERT INTO sales(customer_id, car_id, sale_price) VALUES (1,1,40000.00);
-        INSERT INTO sales(customer_id, car_id, sale_price) VALUES (1,2,21000.20);
+        INSERT INTO sales(customer_id, car_id, sale_price, sale_rep) VALUES (1,1,40000.00, 'Juan');
+        INSERT INTO sales(customer_id, car_id, sale_price, sale_rep) VALUES (1,2,21000.20, 'Maria');
         """)
     conn.commit()
 
@@ -66,11 +73,11 @@ if __name__ == "__main__":
 
         cur = conn.cursor()
         cur.execute("""
-            select cst.customer_id, cst.customer_name, cars.car_make, cars.car_model, cars.car_description, sales.sale_price 
+            select cst.customer_id, cst.customer_name, cars.car_make, cars.car_model, cars.car_description, sales.sale_price, sales.sale_rep 
             from sales
             join customers as cst on cst.customer_id=sales.customer_id
             join cars on cars.car_id = sales.car_id
-            where customer_name='TOM'
+            where customer_name='Jon'
             """)
 
         print(cur.fetchall())

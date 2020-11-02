@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Sales</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Sales Rep</th>
+            ...
+            <th>Total Salesa</th>
+        </tr>
+        {% for item in query_results %}
+        <tr>
+            <td>{{ item.field1 }}</td>
+            ...
+            <td>{{ item.fieldN }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

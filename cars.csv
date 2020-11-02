@@ -1,6 +1,4 @@
-car_make, car_model, car_year, car_description
-Toyota, Forerunner, 2008, rad SUV
-Ford, Ranger, 2013, nice truck
-Honda, Civic, 1995, will outlive us all
-Test,invalid input, too, many, commas!
-Test, not enough commas
+car_make,car_model,car_year,car_description
+Toyota,Forerunner,2008, rad SUV
+Ford,Ranger,2013,nice truck
+Honda,Civic,1995,will outlive us all
