@@ -68,18 +68,8 @@ if __name__ == "__main__":
             user='postgres',
             password='adminpass'
         )
-        # create_schema(conn)
-        # insert_mock_data(conn)
+        create_schema(conn)
+        insert_mock_data(conn)
 
-        cur = conn.cursor()
-        cur.execute("""
-            select cst.customer_id, cst.customer_name, cars.car_make, cars.car_model, cars.car_description, sales.sale_price, sales.sale_rep 
-            from sales
-            join customers as cst on cst.customer_id=sales.customer_id
-            join cars on cars.car_id = sales.car_id
-            where customer_name='Jon'
-            """)
-
-        print(cur.fetchall())
     finally:
         conn.close()

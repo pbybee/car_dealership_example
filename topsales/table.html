@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Top Sales</title>
+
 </head>
 <body>
+    <h1>Top Sales of {{ car_model }}</h1>
     <table>
         <tr>
             <th>Sales Rep</th>
-            ...
-            <th>Total Salesa</th>
+            <th>Total Sales</th>
         </tr>
-        {% for item in query_results %}
+        {% for k,v in query_results.items %}
         <tr>
-            <td>{{ item.field1 }}</td>
-            ...
-            <td>{{ item.fieldN }}</td>
+            <td>{{ k }}</td>
+            <td>{{ v }}</td>
         </tr>
         {% endfor %}
     </table>

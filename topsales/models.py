@@ -19,7 +19,7 @@ class Cars(models.Model):
     class Meta:
         managed = False
         db_table = 'cars'
-
+        app_label = 'topsales'
 
 class Customers(models.Model):
     customer_id = models.AutoField(primary_key=True)
@@ -29,6 +29,7 @@ class Customers(models.Model):
     class Meta:
         managed = False
         db_table = 'customers'
+        app_label = 'topsales'
 
 
 class Sales(models.Model):
@@ -41,10 +42,4 @@ class Sales(models.Model):
     class Meta:
         managed = False
         db_table = 'sales'
-
-
-class TopSales(models.Model):
-    top_sales_id = models.AutoField(primary_key=True)
-    sale_rep = models.TextField(blank=True, null=True)
-    total_sales = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    sales_points = models.IntegerField()
+        app_label = 'topsales'
