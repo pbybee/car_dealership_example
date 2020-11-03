@@ -1,6 +1,6 @@
 You can get started simply by building with docker-compose
 ```
-docker-comose build
+docker-compose build
 docker-compose up
 ```
 
