@@ -1,4 +1,4 @@
-You can get started by pulling the postgres docker image and making a directory
+You can get started simply by building with docker-compose
 ```
 docker-comose build
 docker-compose up
